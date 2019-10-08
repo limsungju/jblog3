@@ -14,8 +14,8 @@ public class UserDao {
 	private SqlSession sqlSession;
 	
 	// 회원가입
-	public Boolean insert(UserVo vo) throws UserDaoException {
-		int count = sqlSession.insert("user.insert", vo);
+	public Boolean insert(UserVo userVo) throws UserDaoException {
+		int count = sqlSession.insert("user.insert", userVo);
 		return count == 1;
 	}
 	

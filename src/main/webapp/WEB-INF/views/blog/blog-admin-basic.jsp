@@ -35,7 +35,7 @@
 			      		<tr>
 			      			<td class="t">로고이미지</td>
 			      			<td><img src="${pageContext.request.contextPath}/assets/images/spring-logo.jpg"></td>      			
-			      		</tr>      		
+			      		</tr>
 			      		<tr>
 			      			<td class="t">&nbsp;</td>
 			      			<td><input type="file" name="logo-file"></td>      			

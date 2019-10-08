@@ -12,6 +12,8 @@
 		]]>
 	</insert>
 	
+	
+	
 	<!-- id 중복검사 -->
 	<select id="getById" parameterType="string"
 		resultType="uservo">

@@ -28,12 +28,12 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/join", method=RequestMethod.POST)
-	public String join(@ModelAttribute @Valid UserVo vo, BindingResult result, Model model) {
+	public String join(@ModelAttribute @Valid UserVo userVo, BindingResult result, Model model) {
 		if(result.hasErrors()) { // result에 Error가 있는지 없는지 확인
 			model.addAllAttributes(result.getModel()); // result.getModel()이 Map을 리턴해주어, 키/값을 자동으로 셋팅해준다.
 			return"user/join"; // Error가 있다면 join으로 리턴
 		}
-		userService.join(vo);
+		userService.join(userVo);
 		return "user/joinsuccess";
 	}
 	
