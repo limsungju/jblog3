@@ -13,18 +13,7 @@
 <body>
 	<div class="center-content">
 		<h1 class="logo">JBlog</h1>
-		<ul class="menu">
-			<c:choose>
-      			<c:when test="${empty authUser }">
-					<li><a href="${pageContext.servletContext.contextPath }/user/login">로그인</a></li>
-					<li><a href="${pageContext.servletContext.contextPath }/user/join">회원가입</a></li>
-				</c:when>
-				<c:otherwise>
-					<li><a href="${pageContext.servletContext.contextPath }/user/logout">로그아웃</a></li>
-					<li><a href="${pageContext.servletContext.contextPath }/user/myblog">내블로그</a></li>
-				</c:otherwise>
-			</c:choose>
-		</ul>
+		<c:import url="/WEB-INF/views/includes/mainnav.jsp"/>
 		<form class="login-form" method="post" action="${pageContext.servletContext.contextPath }/user/auth">
       		<label>아이디</label> <input type="text" name="id">
       		<label>패스워드</label> <input type="password" name="password">
