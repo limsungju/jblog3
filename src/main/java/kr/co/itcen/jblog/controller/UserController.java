@@ -27,6 +27,7 @@ public class UserController {
 		return "user/join";
 	}
 	
+	// 회원가입 폼
 	@RequestMapping(value="/join", method=RequestMethod.POST)
 	public String join(@ModelAttribute @Valid UserVo userVo, BindingResult result, Model model) {
 		if(result.hasErrors()) { // result에 Error가 있는지 없는지 확인
@@ -37,8 +38,15 @@ public class UserController {
 		return "user/joinsuccess";
 	}
 	
+	// 회원가입 성공
 	@RequestMapping(value="/joinsuccess", method=RequestMethod.GET)
 	public String joinsuccess() {
 		return "redirect:/user/joinsuccess";
+	}
+	
+	// 로그인
+	@RequestMapping(value="/login", method=RequestMethod.GET)
+	public String login() {
+		return "user/login";
 	}
 }

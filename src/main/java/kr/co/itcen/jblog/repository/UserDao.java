@@ -24,4 +24,9 @@ public class UserDao {
 		UserVo result = sqlSession.selectOne("user.getById", id);
 		return result;
 	}
+
+	public UserVo get(UserVo userVo) {
+		UserVo result = sqlSession.selectOne("getByEmailAndPassword", userVo);
+		return result;
+	}
 }

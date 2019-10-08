@@ -40,5 +40,10 @@ public class UserService {
 	public Boolean existUser(String id) {
 		return userDao.get(id) != null;
 	}
+	
+	// 세션 회원정보
+	public UserVo getUser(UserVo userVo) {
+		return userDao.get(userVo);
+	}
 
 }

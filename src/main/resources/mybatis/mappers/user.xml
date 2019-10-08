@@ -12,8 +12,6 @@
 		]]>
 	</insert>
 	
-	
-	
 	<!-- id 중복검사 -->
 	<select id="getById" parameterType="string"
 		resultType="uservo">
@@ -22,6 +20,17 @@
         from user
        where id = #{id }      
       ]]>
+	</select>
+	
+	<!-- 세션에 있는 회원정보 -->
+	<select id="getByEmailAndPassword" parameterType="uservo"
+		resultType="uservo">
+		<![CDATA[
+		select id, name
+		  from user
+		 where id = #{id }
+		   and password = #{password }
+		]]>
 	</select>
 	
 
