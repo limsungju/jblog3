@@ -12,6 +12,15 @@
 		]]>
 	</insert>
 	
-	
+	<!--  블로그  카테고리 목록  가져오기 -->
+	<select id="getCategoryList" parameterType="string" resultType="categoryvo">
+		<![CDATA[
+		select c.*, (select count(*)
+		               from post p
+		              where c.no = p.category_no) as postCount
+          from category c
+         where id = #{id}
+		]]>
+	</select>
 
 </mapper>

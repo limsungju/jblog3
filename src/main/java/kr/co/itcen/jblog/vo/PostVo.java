@@ -1,10 +1,11 @@
 package kr.co.itcen.jblog.vo;
 
-public class CategoryVo {
+public class PostVo {
 	private Long no;
-	private String name;
+	private String title;
 	private String contents;
 	private String regDate;
+	private Long categoryNo;
 	private String id;
 
 	public Long getNo() {
@@ -15,12 +16,12 @@ public class CategoryVo {
 		this.no = no;
 	}
 
-	public String getName() {
-		return name;
+	public String getTitle() {
+		return title;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 	public String getContents() {
@@ -39,6 +40,14 @@ public class CategoryVo {
 		this.regDate = regDate;
 	}
 
+	public Long getCategoryNo() {
+		return categoryNo;
+	}
+
+	public void setCategoryNo(Long categoryNo) {
+		this.categoryNo = categoryNo;
+	}
+
 	public String getId() {
 		return id;
 	}
@@ -49,8 +58,8 @@ public class CategoryVo {
 
 	@Override
 	public String toString() {
-		return "CategoryVo [no=" + no + ", name=" + name + ", contents=" + contents + ", regDate=" + regDate + ", id="
-				+ id + "]";
+		return "PostVo [no=" + no + ", title=" + title + ", contents=" + contents + ", regDate=" + regDate
+				+ ", categoryNo=" + categoryNo + ", id=" + id + "]";
 	}
 
 }
