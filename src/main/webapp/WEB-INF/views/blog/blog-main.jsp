@@ -27,7 +27,7 @@
 				</div>
 				<ul class="blog-list">
 					<c:forEach items="${view.postList }" var="poster" varStatus="status">
-					<li><a href="${pageContext.servletContext.contextPath }/${blogInfo.id}/${poster.categoryno }/${poster.postno}">${poster.title}</a><span>${poster.reg_date}</span></li>
+					<li><a href="${pageContext.servletContext.contextPath }/${blogInfo.id }/${poster.categoryno }/${poster.postno}">${poster.title}</a><span>${poster.reg_date}</span></li>
 				</c:forEach>
 				</ul>
 			</div>
@@ -35,7 +35,7 @@
 
 		<div id="extra">
 			<div class="blog-logo">
-				<img src="${pageContext.request.contextPath }/assets/images/spring-logo.jpg">
+				<img src="${pageContext.request.contextPath }${blogInfo.logo }">
 			</div>
 		</div>
 

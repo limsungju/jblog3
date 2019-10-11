@@ -22,4 +22,10 @@ public class BlogDao {
 		return sqlSession.selectOne("blog.getInfo", id);
 	}
 	
+	// 블로그 정보 변경
+	public void update(BlogVo blogVo) {
+		sqlSession.update("blog.update", blogVo);
+	}
+	
+	
 }

@@ -15,5 +15,12 @@ public class BlogService {
 	public BlogVo getInfo(String id) {
 		return blogDao.getInfo(id);
 	}
+	
+	// 블로그 정보 변경
+	public void update(BlogVo blogVo) {
+		blogDao.update(blogVo);
+	}
+	
+	
 
 }
