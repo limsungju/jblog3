@@ -1,12 +1,12 @@
 package kr.co.itcen.jblog.controller;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -18,7 +18,7 @@ import kr.co.itcen.jblog.service.CategoryService;
 import kr.co.itcen.jblog.service.FileuploadService;
 import kr.co.itcen.jblog.service.PostService;
 import kr.co.itcen.jblog.vo.BlogVo;
-import kr.co.itcen.jblog.vo.PostVo;
+import kr.co.itcen.jblog.vo.CategoryVo;
 
 @Controller
 @RequestMapping("/{id:(?!assets)(?!images).*}")
@@ -71,7 +71,8 @@ public class BlogController {
 		// 카테고리 관리 페이지
 		if(admin_no ==2 ) {
 			// 블로그 카테고리 목록 가져오기
-			
+			List<CategoryVo> categoryList = categoryService.getCategoryList(id);
+			model.addAttribute("categoryList", categoryList);
 			return "blog/blog-admin-category";
 		}
 		

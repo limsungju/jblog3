@@ -22,4 +22,10 @@ public class CategoryDao {
 	public List<CategoryVo> getCategoryList(String id) {
 		return sqlSession.selectList("category.getCategoryList", id);
 	}
+	
+	// 카테고리 작성
+	public void writeList(CategoryVo categoryVo) {
+		sqlSession.insert("category.writeList", categoryVo);
+		
+	}
 }

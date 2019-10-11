@@ -22,5 +22,14 @@
          where id = #{id}
 		]]>
 	</select>
+	
+	<!-- 카테고리 작성 -->
+	<insert id="writeList" parameterType="categoryvo">
+		<![CDATA[
+		insert
+		  into category
+		values (null, #{name}, #{contents}, now(), #{id})
+		]]>
+	</insert>
 
 </mapper>
