@@ -28,13 +28,19 @@ public class CategoryService {
 		return categoryDao.getCategoryList(categoryVo.getId());
 	}
 	
-	// // 카테고리 삭제 * 리스트 반환
+	// 카테고리 삭제 * 리스트 반환
 	public List<CategoryVo> delete(CategoryVo categoryVo) {
 		// 카테고리 삭제
 		categoryDao.delete(categoryVo);
 		
 		// 블로그 카테고리 목록 가져오기
 		return categoryDao.getCategoryList(categoryVo.getId());
+	}
+	
+	// 카테고리명 가져오기
+	public List<CategoryVo> getCategoryName(String id) {
+		List<CategoryVo> categoryList = categoryDao.getCategoryName(id);
+		return categoryList;
 	}
 
 	

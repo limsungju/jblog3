@@ -58,4 +58,10 @@ public class PostService {
 		
 		return mainList;
 	}
+	
+	// 포스트 작성
+	public void postWrite(PostVo postVo) {
+		postDao.postWrite(postVo);
+		
+	}
 }

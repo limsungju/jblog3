@@ -22,7 +22,7 @@
 						<c:if test='${empty view.postView }'>
 							<span style="font-size:1rem;font-weight:bold">해당 카테고리에는 포스트가 없습니다.</span>
 						</c:if>
-						${view.postView.content }
+						${view.postView.contents }
 					<p>
 				</div>
 				<ul class="blog-list">

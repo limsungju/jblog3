@@ -34,4 +34,9 @@ public class CategoryDao {
 		sqlSession.delete("category.delete", categoryVo);
 		
 	}
+	
+	// 카테고리명 가져오기
+	public List<CategoryVo> getCategoryName(String id) {
+		return sqlSession.selectList("category.getCategoryName", id);
+	}
 }

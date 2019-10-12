@@ -41,5 +41,14 @@
 		   and id = #{id}
 		]]>
 	</delete>
+	
+	<!-- 카테고리명 가져오기 -->
+	<select id="getCategoryName" parameterType="string" resultType="categoryvo">
+		<![CDATA[
+		select no, name
+          from category
+         where id = #{id}
+		]]>
+	</select>
 
 </mapper>

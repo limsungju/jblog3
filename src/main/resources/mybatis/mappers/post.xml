@@ -36,5 +36,13 @@
 		]]>
 	</select>
 	
+	<!-- 포스트작성 -->
+	<insert id="postWrite" parameterType="postvo">
+		<![CDATA[
+		insert
+		  into post
+		values (null, #{title}, #{contents}, now(), #{categoryNo})
+		]]>
+	</insert>
 
 </mapper>

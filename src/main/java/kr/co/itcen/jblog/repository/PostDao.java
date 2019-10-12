@@ -27,5 +27,10 @@ public class PostDao {
 	public PostVo getPostView(Long categoryNo) {
 		return sqlSession.selectOne("post.getPostViewNo", categoryNo);
 	}
+	
+	// 포스트 작성
+	public void postWrite(PostVo postVo) {
+		sqlSession.insert("post.postWrite", postVo);
+	}
 
 }
