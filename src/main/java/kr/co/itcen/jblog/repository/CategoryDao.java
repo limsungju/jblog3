@@ -24,8 +24,14 @@ public class CategoryDao {
 	}
 	
 	// 카테고리 작성
-	public void writeList(CategoryVo categoryVo) {
-		sqlSession.insert("category.writeList", categoryVo);
+	public void write(CategoryVo categoryVo) {
+		sqlSession.insert("category.write", categoryVo);
+		
+	}
+	
+	// 카테고리 삭제
+	public void delete(CategoryVo categoryVo) {
+		sqlSession.delete("category.delete", categoryVo);
 		
 	}
 }

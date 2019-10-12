@@ -24,12 +24,22 @@
 	</select>
 	
 	<!-- 카테고리 작성 -->
-	<insert id="writeList" parameterType="categoryvo">
+	<insert id="write" parameterType="categoryvo">
 		<![CDATA[
 		insert
 		  into category
 		values (null, #{name}, #{contents}, now(), #{id})
 		]]>
 	</insert>
+	
+	<!-- 카테고리 삭제 -->
+	<delete id="delete" parameterType="categoryvo">
+		<![CDATA[
+		delete
+		  from category
+		 where no = #{no}
+		   and id = #{id}
+		]]>
+	</delete>
 
 </mapper>

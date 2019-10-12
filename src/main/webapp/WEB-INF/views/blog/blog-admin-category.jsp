@@ -11,6 +11,7 @@
 <script src="<c:url value='/assets/js/jquery/jquery-1.9.0.js'/>"></script>
 <script>
  $(function(){
+	 // 카테고리 추가 & 리스트
 	$('#submit').click(function(){
 		var id = "${authUser.id}";
 		var name = $('#name').val();
@@ -20,13 +21,13 @@
 			return;
 		}
 		
-		var category = {id:id, name:name, contents:contents}
+		var categoryVo = {id:id, name:name, contents:contents}
 		
 		$.ajax({
 			url: "${pageContext.servletContext.contextPath }/api/blog/categoryWrite", 
 			type: "post",
 			dataType: "json",
-			data: category,
+			data: categoryVo,
 			success: function(response){
 				if(response.result == "fail") {
 					console.error(response.message);
@@ -41,7 +42,10 @@
 							.append($('<td/>').text(categoryList[i].name))
 							.append($('<td/>').text(categoryList[i].postCount))
 							.append($('<td/>').text(categoryList[i].contents))
-							.append($('<td/>').append($('<img/>').attr('src', '${pageContext.request.contextPath}/assets/images/delete.jpg').attr('category_no', categoryList[i].no))))
+							.append($('<td/>').append($('<img/>')
+									.attr('src', '${pageContext.request.contextPath}/assets/images/delete.jpg')
+									.attr('id', 'category_del')
+									.attr('name', categoryList[i].no))))
 				}
 				
 				$('#name').val("");
@@ -49,7 +53,51 @@
 			}
 		});
 	});
+	 
+	 // 카테고리 삭제
+	 $(document).on('click', '#category_del', (function(event){
+		 var id = "${authUser.id}";
+		 var no = $(this).attr('name');
+		 
+		 var categoryVo = {id:id, no:no}
+		 console.log(categoryVo);
+		 
+		 $.ajax({
+			 url: "${pageContext.servletContext.contextPath }/api/blog/categoryDelete",
+			type: "post",
+			dataType: "json",
+			data: categoryVo,
+			success: function(response){
+				console.log(response.data);
+				console.log(response.result);
+				if(response.result == "fail") {
+					console.error(response.message);
+					return;
+				}
+				$("#category_list").empty(); // 태그는 남기고 내용 지우기
+				
+				let categoryList = response.data
+				
+				for(var i in categoryList) {
+					$('#category_list').append($('<tr/>').append($('<td/>').text(categoryList[i].no))
+							.append($('<td/>').text(categoryList[i].name))
+							.append($('<td/>').text(categoryList[i].postCount))
+							.append($('<td/>').text(categoryList[i].contents))
+							.append($('<td/>').append($('<img/>')
+									.attr('src', '${pageContext.request.contextPath}/assets/images/delete.jpg')
+									.attr('id', 'category_del')
+									.attr('name', categoryList[i].no))))
+				}
+				
+				$('#name').val("");
+				$('#contents').val("");
+			}
+		 });
+	 }));
+	 
 });
+	 
+	 
 	
 	
 </script>

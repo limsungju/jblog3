@@ -18,10 +18,20 @@ public class CategoryService {
 		List<CategoryVo> categoryList = categoryDao.getCategoryList(id);
 		return categoryList;
 	}
-
-	public List<CategoryVo> writeList(CategoryVo categoryVo) {
+	
+	// 카테고리 작성 * 리스트 반환
+	public List<CategoryVo> write(CategoryVo categoryVo) {
 		// 카테고리 작성
-		categoryDao.writeList(categoryVo);
+		categoryDao.write(categoryVo);
+		
+		// 블로그 카테고리 목록 가져오기
+		return categoryDao.getCategoryList(categoryVo.getId());
+	}
+	
+	// // 카테고리 삭제 * 리스트 반환
+	public List<CategoryVo> delete(CategoryVo categoryVo) {
+		// 카테고리 삭제
+		categoryDao.delete(categoryVo);
 		
 		// 블로그 카테고리 목록 가져오기
 		return categoryDao.getCategoryList(categoryVo.getId());

@@ -19,13 +19,25 @@ public class BlogController {
 	@Autowired
 	private CategoryService categoryService;
 	
-	// 카테고리 글 작성
+	// 카테고리 작성 * 리스트 반환
 	@ResponseBody
 	@RequestMapping(value="/categoryWrite", method=RequestMethod.POST)
 	public JSONResult categoryWrite(@ModelAttribute CategoryVo categoryVo) {
 		// 카테고리 작성, 리스트
-		List<CategoryVo> categoryList = categoryService.writeList(categoryVo);
+		List<CategoryVo> categoryList = categoryService.write(categoryVo);
 		return JSONResult.success(categoryList);
 	}
 	
+	// 카테고리 삭제
+	@ResponseBody
+	@RequestMapping(value="/categoryDelete", method=RequestMethod.POST)
+	public JSONResult categoryDelete(@ModelAttribute CategoryVo categoryVo) {
+		List<CategoryVo> categoryList = categoryService.delete(categoryVo);
+		System.out.println("~~~~~~~~~~~~~~~~~~~~");
+		System.out.println("!!!!!!!!" + categoryVo);
+		for(CategoryVo vo : categoryList) {
+			System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!"+vo);
+		}
+		return JSONResult.success(categoryList);
+	}
 }
