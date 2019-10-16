@@ -9,7 +9,7 @@ public class BlogVo {
 	{
 		this.id = id;
 		this.title = id + "님의 블로그";
-		this.logo = "/assets/images/spring-LOGO.jpg";
+		this.logo = "/assets/images/spring-logo.jpg";
 	}
 	
 	public String getId() {
